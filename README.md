@@ -1,55 +1,61 @@
 # Might & Magic IX UI & HUD Fix
 
-<b>Дисклеймер: данный фикс был создан с помощью генеративного ИИ.</b>
+<b>Disclaimer: this fix was created using generative AI.</b>
 
-Инструкция по установке данного фикса находится в конце данного `README`, а также в файле `INSTALLATION.txt` в архиве.
+You can find the installation guide of this fix in the end of this `README` and in the `INSTALLATION.txt` file (in the archive file too).
 
-## Введение
+<a href="https://github.com/an00biz/MM9WidescreenFix/blob/main/README_ru.md">Описание на русском здесь.</a>
 
-Оригинальная игра залочена на разрешении `800x600`, т.к. координаты интерфейсов привязаны не к разрешению экрана, а жёстко закодированы, и если поменять разрешение вручную через `autoexec.cfg`, что находится в корневом каталоге игры, весь UI "едет", а HUD остаётся по центру экрана в его оригинальном размере:
+## Introduction
+
+The original game is locked to `800x600` resolution because HUD and UI coordinates are hardcoded and if you change the resolution manually in `autoexec.cfg`, which you can find in the game root folder, the UI is falling apart and the HUD stays at the center of the screen in it's original size:
 <img width="1920" height="1080" alt="Screenshot0" src="https://github.com/user-attachments/assets/b276d504-1f7c-4a4d-a220-24c1a763ef2d" />
 <img width="1920" height="1080" alt="Screenshot1" src="https://github.com/user-attachments/assets/cda086e8-6218-44c5-a38a-b62516c3b095" />
 
-Также побочным эффектом данного изменения является искажение вертикального FOV (далее `fovY`), ибо по умолчанию в игре горизонтальный FOV (далее `fovX`) = `90°`, а `fovY = fovX * ScreenHeight / ScreenWidth`, что при разрешении `800x600` даёт угол в `67.5°` (что даже так уже немного растягивает картинку), а при разрешении `1920x1080` даёт угол `50.625°`, из-за чего по горизонтали видимость абсолютно такая же, а по вертикали меньше ещё на `16.875°`:
+A side effect of this is vertical FOV distortion (`fovY` further) because game's default horizontal FOV (`fovX` further) = `90°` and `fovY = fovX * ScreenHeight / ScreenWidth`, which with the `800x600` resoluton gives a `67.5°` angle (and it's already stretching the picture a little bit) and with the `1920x1080` resolution gives an angle equals to `50.625°`, which makes the horizontal visibility the same and reduces vertical by `16.875°`:
 <img width="1920" height="1080" alt="ezgif com-optimize (1)" src="https://github.com/user-attachments/assets/be111139-c1ac-4afb-bc13-51c93a94da26" />
 
-## Что делает этот фикс
+## What this fix does
 
-### Разрешение экрана и привязка UI и HUD к относительным координатам вместо абсолютных
+### Screen resolution and UI and HUD are now tied to relative coordinates instead of hardcoded ones
 
-- Теперь вы можете менять разрешение экрана прямо в настройках игры. В разделе `Options` -> `Video Options` добавлено отдельное окно, которое подтягивает все возможные поддерживаемые разрешения экрана, а HUD и UI теперь будут менять свой размер в соответствии с разрешением:
+- Now you can change the game's resolution in the settings. In `Options` -> `Video Options` there's a new `Resolution` window, which gets a list of every supported resolutions from game's renderer `d3d.ren` (which gets it from DirectX). HUD and UI should now get it's size and location according to the resolution:
 <img width="1920" height="1080" alt="Screenshot3" src="https://github.com/user-attachments/assets/0553d7b7-eba6-4830-8fcc-74c1c240e2c8" />
 <img width="1920" height="1080" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/ae424153-858a-4d0b-8115-2b20c2f5f202" />
 
-- Вы можете менять размер HUD комбинацией `LCtrl + MouseWheel (Up/Down)` во время игры. Комбинация `LCtrl + MouseWheel` (нажатие) возвращает HUD на значение по умолчанию (максимальный размер). Минимальный размер — оригинальный размер HUD, максимальный — в соответствии с разрешением экрана:
+- You can scale HUD with a `LCtrl + MouseWheel (Up/Down)` combination while playing the game. `LCtrl + MouseWheel (click)` combination resets HUD scale to it's default value (max size). Minimum size — original HUD size, maximum one — according to the game's resolution:
 <img width="800" height="450" alt="LithTech2026 11 04-14 19 59 01-ezgif com-optimize" src="https://github.com/user-attachments/assets/87287768-a9a3-45e4-952f-00f1f48c4b57" />
 
-### Корректный FOV
+### Corrected FOV
 
-- В настройках `Options` -> `Game Options` теперь можно выбрать тип FOV. На выбор даётся три типа: `Original`, `Original Fixed` и `Correct` (в файле ini зовутся `original`, `hor+` и `correct` соответственно).
-  - `Original`: рассчитывает FOV по оригинальным формулам игры;
-  - `Original Fixed` (`hor+`): расширяет `fovX` в соответствии с разрешением экрана, но сохраняет `fovY` на значении `67.5°`;
-  - `Correct`: рассчитывает FOV по правильным формулам, из-за чего растянутость изображения по вертикали полностью устраняется.
+- In `Options` -> `Game Options` you can now choose FOV type. You can select one from three: `Original`, `Original Fixed` and `Correct` (in the ini file called `original`, `hor+` and `correct` respectively).
+  - `Original`: calculates FOV using game's original math;
+  - `Original Fixed` (`hor+`): expands `fovX` according to the screen resolution, but keeps the `fovY` on `67.5°`;
+  - `Correct`: calculates FOV using proper math, which removes the vertical stretching completely.
 <img width="1920" height="1080" alt="Screenshot4" src="https://github.com/user-attachments/assets/cdeb0053-3011-4670-9480-1a83a76db252" />
 <img width="1920" height="1080" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/98c37157-574b-48ce-81bc-0fd3046f7181" />
 
-- На скриншоте выше также видно новые ползунки, отвечающие за размер HUD и FOV:
-  - Первый делает то же, что и комбинация `LCtrl + MouseWheel (Up/Down)` во время игры. Двойное нажатие на ползунок возвращает его на значение по умолчанию (максимальный размер);
-  - Второй позволяет менять FOV. Двойное нажатие на ползунок возвращает его на значение по умолчанию. Вы также можете менять FOV во время игры комбинацией `LAlt + MouseWheel (Up/Down)`. Комбинация `LAlt + MouseWheel` (нажатие) возвращает FOV на значение по умолчанию:
+- On the screenshot above you can see the new slider bars that can regulate HUD scale and FOV:
+  - First one does the same thing `LCtrl + MouseWheel (Up/Down)` combination does while playing. Double click on the slider sets it back to the default value (max size);
+  - Second one lets you change FOV. Double click on the slider sets it back to the default value. You can change FOV with the `LAlt + MouseWheel (Up/Down)` combination while playing the game. The `LAlt + MouseWheel (click)` combination sets it back to the default value:
 <img width="800" height="450" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/c4cd1faf-4dde-4d65-a38b-d42d5fc44366" />
 
-### Прочее
+### Miscellaneous
 
-- В разделе `Option -> Sound Options` слайдер `Master Volume` теперь запоминает установленное значение, а не сбрасывает его при каждом новом заходе в игру.
+- In `Option -> Sound Options` the `Master Volume` slider now remembers the value it's set and not resetting it every time you enter the game.
 
 ### Дополнительные настройки
 
-Помимо настроек, представленных выше, к файлу `cshell.dll` также прилагается файл `cshell_hud.ini` с дополнительными настройками. К каждой такой настройке имеется описание.
-Пример: `mode` в разделе `[UI]`. `mode=fit` сохраняет соотношение 4:3 у UI и подгоняет его под высоту экрана, `mode=stretched` растягивает UI по всему экрану.
+In addition to the settings listed above, the `cshell.dll` file also includes a `cshell_hud.ini` file with additional settings. Every setting have it's own description.
+Example: the "mode" setting in the `[UI]` section. `mode=fit` preserves the `4:3` aspect ratio of the UI and adjusts it to fit the screen height, while `mode=stretched` stretches the UI to fill the entire screen.
 <img width="1920" height="1080" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/cb8ba4fd-d8a9-4c5c-a272-e72cddc4d1c0" />
 
-## Установка
+## Additional note
 
-1. В корневом каталоге игры откройте папку `/data`, найдите и переименуйте файл `cshell.dll` в `cshell_orig.dll`;
-2. Извлеките из архива `cshell.dll` и `cshell_hud.ini` и положите их в эту же папку;
-3. Играйте :)
+You can use this fix with any wrapper. I've tested on GOG's `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">elishacloud's dxwrapper</a> and <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. It works on every one.
+
+## Installation
+
+1. In your root game folder, go to `/data` folder, find and rename file `cshell.dll` to `cshell_orig.dll`;
+2. Put `cshell.dll` and `cshell_hud.ini` from the archive in the same folder;
+3. Play the game :)
