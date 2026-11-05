@@ -52,7 +52,7 @@ Example: the "mode" setting in the `[UI]` section. `mode=fit` preserves the `4:3
 
 ## Additional note
 
-You can use this fix with any wrapper. I've tested on GOG's `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">elishacloud's dxwrapper</a> and <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. It works on every one.
+You can use this fix with any wrapper. I've tested on GOG's `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">elishacloud's dxwrapper</a> and <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. It works on every one of them.
 
 ## Installation
 

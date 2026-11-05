@@ -50,7 +50,7 @@
 
 ## Небольшая заметка
 
-Этот фикс можно использовать вместе с любым враппером будь то GOG'овский `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">dxwrapper от elishacloud</a> или <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. Проверено и работает на каждом.
+Этот фикс можно использовать вместе с любым враппером, будь то GOG'овский `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">dxwrapper от elishacloud</a> или <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. Проверено и работает на каждом.
 
 ## Установка
 
