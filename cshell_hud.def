@@ -1,5 +1,0 @@
-LIBRARY cshell
-EXPORTS
-    GetClientShellFunctions
-    GetClientShellVersion
-    SetInstanceHandle
