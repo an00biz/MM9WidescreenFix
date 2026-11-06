@@ -48,7 +48,7 @@
 Пример: `mode` в разделе `[UI]`. `mode=fit` сохраняет соотношение 4:3 у UI и подгоняет его под высоту экрана, `mode=stretched` растягивает UI по всему экрану.
 <img width="1920" height="1080" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/cb8ba4fd-d8a9-4c5c-a272-e72cddc4d1c0" />
 
-## Небольшая заметка
+## Совместимость с врапперами
 
 Этот фикс можно использовать вместе с любым враппером, будь то GOG'овский `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">dxwrapper от elishacloud</a> или <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. Проверено и работает на каждом.
 

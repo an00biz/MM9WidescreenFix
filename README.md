@@ -50,7 +50,7 @@ In addition to the settings listed above, the `cshell.dll` file also includes a 
 Example: the "mode" setting in the `[UI]` section. `mode=fit` preserves the `4:3` aspect ratio of the UI and adjusts it to fit the screen height, while `mode=stretched` stretches the UI to fill the entire screen.
 <img width="1920" height="1080" alt="ezgif com-optimize" src="https://github.com/user-attachments/assets/cb8ba4fd-d8a9-4c5c-a272-e72cddc4d1c0" />
 
-## A note
+## Wrappers compatibility
 
 You can use this fix with any wrapper. I've tested on GOG's `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">elishacloud's dxwrapper</a> and <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. It works on every one of them.
 
