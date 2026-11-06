@@ -12,7 +12,7 @@ Build: `build.bat` in an x86 Developer Command Prompt. Includes are written from
 | `settings/` | `cshell_hud.ini`: reading it (live), saving the values the game changes, key bindings |
 | `layout/` | Where the 800x600 design space lands on the screen, and the way back for mouse points |
 | `rendering/` | Hooks on the engine's 2D render object: every draw onto the screen is mapped |
-| `ui/` | Hooks on the game's windows: the window tree, the HUD, aligned windows, the cursor |
+| `ui/` | Hooks on the game's windows: the window tree, the HUD, aligned windows, the cursor, the party creation fix |
 | `input/` | Key bindings (message hook) and mouse points converted in the window proc |
 | `camera/` | The 3D view rect in cutscenes, and the field of view on wide screens |
 | `media/` | Bink videos (aspect kept) and the master volume at start |
@@ -56,6 +56,7 @@ Build: `build.bat` in an x86 Developer Command Prompt. Includes are written from
 |---|---|
 | `window_tree.cpp/.h` | A re-implemented "draw all children" (places HUD pieces in their zones, writes the dump) and the control hit tests. |
 | `window_rules.cpp/.h` | Draw hooks for the HUD (and its mouse handlers), for windows with an `[UI]` alignment rule, for windows following the HUD size, and for the mouse cursor. |
+| `party_creation.cpp/.h` | A fix for a bug in the original game: on the party creation screen, clicking a portrait now selects that party member. The four invisible portrait buttons get the rects of the portraits shown. |
 
 ### input/
 | File | Contents |
@@ -129,4 +130,5 @@ diagnostics                 read-only view of everything, for the log
 | Grey bars beside menus | `rendering/black_bars.cpp` |
 | FOV | `camera/camera.cpp` |
 | Layout of the Options screens | the constants at the top of `options/options_game.cpp` and `options/options_video.cpp` |
+| A screen's own bug (a control that ignores clicks) | the screen's module in `ui/`, like `ui/party_creation.cpp`; find the class through the source-file strings in the original |
 | A crash | `cshell_hud.log` (crash logger in `diagnostics/`); `[HUD] dump=1` / `mouse_log=1` / `perf=1` |

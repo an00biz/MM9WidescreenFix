@@ -1,6 +1,6 @@
 // Installs the fix in order: every byte and pointer the core patches touch is checked first,
-// and an unknown cshell_orig.dll leaves the game untouched. The option screens, the FOV and the
-// videos check their own code and are skipped alone when it differs.
+// and an unknown cshell_orig.dll leaves the game untouched. The option screens, the party creation
+// fix, the FOV and the videos check their own code and are skipped alone when it differs.
 #include "core/install.h"
 #include "camera/camera.h"
 #include "settings/config.h"
@@ -12,6 +12,7 @@
 #include "options/options_video.h"
 #include "rendering/render_hooks.h"
 #include "media/video.h"
+#include "ui/party_creation.h"
 #include "ui/window_rules.h"
 #include "ui/window_tree.h"
 
@@ -49,6 +50,7 @@ void InstallHooks()
     InstallCameraRectHooks();
     InstallVideoHook();
     InstallOptionsScreens();
+    InstallPartyCreationFix();
     if (InstallFovHooks())        // always installed: [FOV] mode is read live
         Log("fov: hooks installed");
     else

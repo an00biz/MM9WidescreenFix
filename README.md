@@ -42,6 +42,7 @@ A side effect of this is vertical FOV distortion (`fovY` further) because game's
 
 ### Miscellaneous
 
+The portraits of playable characters in the party creation menu are now clickable.
 In `Option -> Sound Options` the `Master Volume` slider now remembers the value it's set and not resetting it every time you enter the game.
 
 ### Additional settings

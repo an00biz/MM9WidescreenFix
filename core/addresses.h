@@ -99,6 +99,18 @@ const DWORD EXE_BINK_BLIT          = 0x00402111;  // lithtech.exe, Bink fullscre
 const DWORD EXE_IMAGE_BASE         = 0x00400000;
 const DWORD VA_MASTER_VOLUME_VAR   = 0x100DFDD0;  // console variable "MasterVolume"
 
+// --- Start Game -> party creation screen (mmixcreatechar.cpp) ---
+const DWORD VA_PARTY_CREATION_VTABLE = 0x100BE9BC;
+const DWORD VA_PARTY_CREATION_DRAW   = 0x10015E80;
+const int   PARTY_CREATION_PORTRAITS = 0xEC;          // the 4 portrait pictures (image controls)
+const int   PORTRAIT_BUTTON_FIRST_ID = 1021;          // invisible buttons over them: ids 1021..1024
+const DWORD VA_BUTTON_VTABLE         = 0x100BEB24;    // invisible button, shared by many menus
+const int   BUTTON_SET_RECT          = 0xD0;          // (Rect*) - the rect at +0x34
+const DWORD VA_BUTTON_SET_RECT       = 0x10085400;
+const int   BUTTON_RECT              = 0x34;
+const DWORD VA_IMAGE_CONTROL_VTABLE  = 0x100C1CD4;
+const DWORD VA_IMAGE_CONTROL_GET_RECT = 0x10030450;
+
 // --- windows with a default rule ---
 const DWORD VA_LOOT_WINDOW_VTABLE = 0x100C13A0;   // chest + inventory (treasuremenu.cpp)
 
