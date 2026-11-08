@@ -1,4 +1,4 @@
-// cshell_hud - Might & Magic IX interface scaling, a wrapper for cshell.dll (v1.2).
+// cshell_hud - Might & Magic IX interface scaling, a wrapper for cshell.dll (v1.3).
 //
 // The engine loads "cshell.dll" (this dll). It loads the untouched original (renamed to
 // cshell_orig.dll), forwards its 3 exports, and patches pointers and a few code spots in the
@@ -89,7 +89,7 @@ static bool EnsureLoaded()
     g_originalGetFunctions = (GetClientShellFunctionsFn)(void*)GetProcAddress(g_originalDll, "GetClientShellFunctions");
     g_originalGetVersion   = (GetClientShellVersionFn)(void*)GetProcAddress(g_originalDll, "GetClientShellVersion");
     g_originalSetInstance  = (SetInstanceHandleFn)(void*)GetProcAddress(g_originalDll, "SetInstanceHandle");
-    Log("MM9 interface fix v1.2 - loaded %s at %08lX", path, g_originalBase);
+    Log("MM9 interface fix v1.3 - loaded %s at %08lX", path, g_originalBase);
 
     LoadConfig(true);
     InstallCrashLogger();
