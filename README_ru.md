@@ -51,7 +51,7 @@
 
 ## Совместимость с врапперами
 
-Этот фикс можно использовать вместе с любым враппером, будь то GOG'овский `ddraw.dll`, <a href="https://github.com/elishacloud/dxwrapper/">dxwrapper от elishacloud</a> или <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a>. Проверено и работает на каждом.
+Этот фикс можно использовать вместе с любым враппером. Проверено и работает на: `ddraw.dll` от GOG, <a href="https://github.com/elishacloud/dxwrapper/">dxwrapper от elishacloud</a>, <a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a> и <a href="https://fdossena.com/?p=wined3d/index.frag">WineD3D</a>. 
 
 ## Установка
 
